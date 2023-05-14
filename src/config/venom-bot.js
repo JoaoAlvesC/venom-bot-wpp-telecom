@@ -1,10 +1,9 @@
 import { create } from 'venom-bot';
 
-export const init = async (session) => {
+export const botInit = async ({ session }) => {
     const client = await create({
-        session
+        session,
     });
-
+    console.log('Bot initialized successfully');
     return client;
 };
-
