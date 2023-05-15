@@ -32,7 +32,12 @@ export const botInit = async ({ session }) => {
             console.log('Terminal qrcode: ', asciiQR);
             console.log('base64 image string qrcode: ', base64Qrimg);
         },
-        { useChrome: false, browserArgs: ['--no-sandbox'] }
+        { useChrome: false, browserArgs: ['--no-sandbox'] },
+        (statusSession, session) => {
+            console.log('Status Session: ', statusSession); //return isLogged || notLogged || browserClose || qrReadSuccess || qrReadFail || autocloseCalled || desconnectedMobile || deleteToken || chatsAvailable || deviceNotConnected || serverWssNotConnected || noOpenBrowser
+            //Create session wss return "serverClose" case server for close
+            console.log('Session name: ', session);
+        },
     );
     console.log('Bot initialized successfully');
     return client;
