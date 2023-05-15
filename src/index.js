@@ -13,7 +13,6 @@ const run = async () => {
                 const response = await handle_telecom(data);
                 if (response != null) {
                     try {
-                        console.log(response);
                         await client.reply(data.from, response.message, data.id);
                     } catch (error) {
                         console.error(error);
